@@ -7,7 +7,7 @@ import { globalIgnores } from 'eslint/config'
 import importPlugin from 'eslint-plugin-import'
 
 export default tseslint.config([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'vite.config.ts']),
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
@@ -18,8 +18,6 @@ export default tseslint.config([
       tseslint.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
-      'plugin:import/recommended',
-      'plugin:import/typescript',
     ],
     languageOptions: {
       ecmaVersion: 2020,

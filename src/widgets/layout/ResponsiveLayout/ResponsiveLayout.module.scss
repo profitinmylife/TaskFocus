@@ -1,0 +1,85 @@
+.root {
+    display: flex;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+.sidebarDesktop {
+    display: none;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    width: 240px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .sidebarDesktop {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.mobileMenuButton {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: var(--button-bg);
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+.mobileSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    padding: 16px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileSidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: var(--button-hover-bg);
+    }
+}
+
+.scrollArea {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    background-color: var(--content-bg);
+}
