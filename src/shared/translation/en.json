@@ -1,0 +1,43 @@
+{
+  "common": {
+    "button": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "delete": "Delete",
+      "edit": "Edit"
+    },
+    "notification": {
+      "success": "Success!",
+      "error": "Error",
+      "warning": "Warning"
+    }
+  },
+  "auth": {
+    "login": "Log in",
+    "logout": "Log out",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?"
+  },
+  "profile": {
+    "title": "Profile",
+    "name": "Name",
+    "bio": "Bio",
+    "settings": "Settings"
+  },
+  "tasks": {
+    "title": "Tasks",
+    "create": "Create task",
+    "status": {
+      "todo": "To do",
+      "inProgress": "In progress",
+      "done": "Done"
+    }
+  },
+  "errors": {
+    "required": "Required field",
+    "invalidEmail": "Invalid email",
+    "minLength": "Minimum length — {{count}} characters"
+  }
+}

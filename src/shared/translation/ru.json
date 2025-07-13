@@ -1,0 +1,43 @@
+{
+  "common": {
+    "button": {
+      "save": "Сохранить",
+      "cancel": "Отмена",
+      "submit": "Отправить",
+      "delete": "Удалить",
+      "edit": "Редактировать"
+    },
+    "notification": {
+      "success": "Успешно!",
+      "error": "Ошибка",
+      "warning": "Предупреждение"
+    }
+  },
+  "auth": {
+    "login": "Войти",
+    "logout": "Выйти",
+    "email": "Email",
+    "password": "Пароль",
+    "forgotPassword": "Забыли пароль?"
+  },
+  "profile": {
+    "title": "Профиль",
+    "name": "Имя",
+    "bio": "О себе",
+    "settings": "Настройки"
+  },
+  "tasks": {
+    "title": "Задачи",
+    "create": "Создать задачу",
+    "status": {
+      "todo": "К выполнению",
+      "inProgress": "В процессе",
+      "done": "Готово"
+    }
+  },
+  "errors": {
+    "required": "Обязательное поле",
+    "invalidEmail": "Некорректный email",
+    "minLength": "Минимальная длина — {{count}} символов"
+  }
+}
