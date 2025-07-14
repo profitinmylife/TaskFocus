@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Theme as RadixTheme } from '@radix-ui/themes';
-import type { AppTheme, ThemeContextType } from '@shared/types/theme';
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+import { ThemeContext } from "@shared/hooks/useTheme.ts";
+import type { AppTheme } from '@shared/types/theme';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setThemeState] = useState<AppTheme>('light');
