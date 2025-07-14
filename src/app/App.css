@@ -1,37 +1,16 @@
+@import "tailwindcss";
+@import "@radix-ui/themes/styles.css";
+
 :root {
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-primary: #4f46e5;
-  --color-secondary: #f1f5f9;
+  --tw-color-white: #ffffff;
+  --tw-color-black: #222222;
+  --tw-color-gray-100: #f3f4f6;
+  --tw-color-gray-900: #111827;
 }
 
 .theme-dark {
-  --color-bg: #18181b;
-  --color-text: #f1f5f9;
-  --color-primary: #6366f1;
-  --color-secondary: #27272a;
-}
-
-@import "@radix-ui/themes/styles.css";         /* Стили Radix UI */
-@import "tailwindcss";                          /* Tailwind CSS v4 */
-
-:root {
-  --sidebar-bg: hsl(240, 5%, 10%);
-  --content-bg: hsl(240, 5%, 16%);
-  --button-bg: hsl(240, 5%, 25%);
-  --button-hover-bg: hsl(240, 5%, 30%);
-  --border: hsl(240, 5%, 25%);
-  --background: hsl(240, 5%, 12%);
-}
-
-body {
-  background-color: var(--background);
-  color: white;
-  font-family: 'Inter', sans-serif;
-}
-
-html,
-body,
-#root {
-  height: 100%;
+  --tw-color-white: #18181b;
+  --tw-color-black: #fafafa;
+  --tw-color-gray-100: #27272a;
+  --tw-color-gray-900: #23232b;
 }

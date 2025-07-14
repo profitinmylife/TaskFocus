@@ -2,7 +2,6 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Theme as RadixTheme } from '@radix-ui/themes';
 
 import type { AppTheme } from '@shared/types/theme';
-import { themeColorMap } from '@shared/config/themeColors';
 import { ThemeContext } from '@shared/hooks/useTheme';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -35,12 +34,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         };
     }, []);
 
-    // Устанавливаем CSS custom properties на body для текущей темы
     useEffect(() => {
-        const colors = themeColorMap[theme];
-        Object.entries(colors).forEach(([key, value]) => {
-            document.body.style.setProperty(`--color-${key}`, value);
-        });
         document.body.classList.toggle('theme-dark', theme === 'dark');
     }, [theme]);
 
