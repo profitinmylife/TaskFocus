@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import './App.css';
 import { I18nProvider } from "@app/providers/I18nProvider.tsx";
 import { ThemeProvider } from "@app/providers/ThemeProvider";
-import { useTheme } from "@app/providers/useTheme";
+import { useTheme } from "@shared/hooks/useTheme";
 import '@shared/config/i18n.ts';
 import { ResponsiveLayout } from "@widgets/layout/ResponsiveLayout/ResponsiveLayout.tsx";
 

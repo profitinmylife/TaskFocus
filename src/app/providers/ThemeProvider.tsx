@@ -1,11 +1,10 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { createContext, useEffect, useState, type ReactNode } from 'react';
 import { Theme as RadixTheme } from '@radix-ui/themes';
+import type { AppTheme, ThemeContextType } from '@shared/types/theme';
 
-import { ThemeContext } from './ThemeContext';
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-type AppTheme = 'light' | 'dark';
-
-const ThemeProviderComponent = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setThemeState] = useState<AppTheme>('light');
 
     useEffect(() => {
@@ -52,5 +51,3 @@ const ThemeProviderComponent = ({ children }: { children: ReactNode }) => {
         </ThemeContext.Provider>
     );
 };
-
-export const ThemeProvider = ThemeProviderComponent;
