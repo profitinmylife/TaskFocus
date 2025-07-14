@@ -1,8 +1,9 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Theme as RadixTheme } from '@radix-ui/themes';
 
-import { ThemeContext } from "@shared/hooks/useTheme.ts";
 import type { AppTheme } from '@shared/types/theme';
+import { themeColorMap } from '@shared/config/themeColors';
+import { ThemeContext } from '@shared/hooks/useTheme';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setThemeState] = useState<AppTheme>('light');
@@ -33,6 +34,15 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
             systemPrefersDark.removeEventListener('change', handleSystemChange);
         };
     }, []);
+
+    // Устанавливаем CSS custom properties на body для текущей темы
+    useEffect(() => {
+        const colors = themeColorMap[theme];
+        Object.entries(colors).forEach(([key, value]) => {
+            document.body.style.setProperty(`--color-${key}`, value);
+        });
+        document.body.classList.toggle('theme-dark', theme === 'dark');
+    }, [theme]);
 
     const setTheme = (newTheme: AppTheme) => {
         setThemeState(newTheme);

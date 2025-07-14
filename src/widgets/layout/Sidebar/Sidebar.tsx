@@ -1,11 +1,9 @@
-import * as Collapsible from '@radix-ui/react-collapsible';
 import { useState } from 'react';
+import * as Collapsible from '@radix-ui/react-collapsible';
+
+import type { SidebarProps } from '@widgets/layout/Sidebar/lib';
 
 import { SidebarItem } from './SidebarItem.tsx';
-
-type SidebarProps = {
-    onLinkClick?: () => void; // <-- добавляем проп
-};
 
 export const Sidebar = ({ onLinkClick }: SidebarProps) => {
     const [isOpen, setIsOpen] = useState(true);

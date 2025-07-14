@@ -4,6 +4,7 @@ import './App.css';
 import { I18nProvider } from "@app/providers/I18nProvider.tsx";
 import { ThemeProvider } from "@app/providers/ThemeProvider";
 import { useTheme } from "@shared/hooks/useTheme";
+import { themeColorMap } from "@shared/config/themeColors";
 import '@shared/config/i18n.ts';
 import { ResponsiveLayout } from "@widgets/layout/ResponsiveLayout/ResponsiveLayout.tsx";
 
@@ -12,7 +13,9 @@ const AppContent = () => {
 
     return (
         <I18nProvider>
-            <button onClick={toggleTheme}>Toggle Theme</button>
+            <button onClick={toggleTheme} className="bg-primary text-text px-4 py-2 rounded">
+                Toggle Theme
+            </button>
             <ResponsiveLayout />
         </I18nProvider>
     );

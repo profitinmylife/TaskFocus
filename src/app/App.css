@@ -1,7 +1,20 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-primary: #4f46e5;
+  --color-secondary: #f1f5f9;
+}
+
+.theme-dark {
+  --color-bg: #18181b;
+  --color-text: #f1f5f9;
+  --color-primary: #6366f1;
+  --color-secondary: #27272a;
+}
+
 @import "@radix-ui/themes/styles.css";         /* Стили Radix UI */
 @import "tailwindcss";                          /* Tailwind CSS v4 */
 
-/* Кастомные переменные, если нужно */
 :root {
   --sidebar-bg: hsl(240, 5%, 10%);
   --content-bg: hsl(240, 5%, 16%);
@@ -11,7 +24,6 @@
   --background: hsl(240, 5%, 12%);
 }
 
-/* Глобальные стили */
 body {
   background-color: var(--background);
   color: white;
