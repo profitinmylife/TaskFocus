@@ -3,18 +3,29 @@ import { Theme } from '@radix-ui/themes';
 import { ThemeContext } from '@shared/hooks/useTheme';
 import type { AppTheme } from '@shared/types/theme';
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setThemeState] = useState<AppTheme>('light');
+export const ThemeProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+  const [theme, setThemeState] =
+    useState<AppTheme>('light');
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme') as AppTheme | null;
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const storedTheme = localStorage.getItem(
+      'theme',
+    ) as AppTheme | null;
+    const systemPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    );
 
     const setInitialTheme = () => {
       if (storedTheme) {
         setThemeState(storedTheme);
       } else {
-        setThemeState(systemPrefersDark.matches ? 'dark' : 'light');
+        setThemeState(
+          systemPrefersDark.matches ? 'dark' : 'light',
+        );
       }
     };
 
@@ -26,15 +37,24 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     };
 
     setInitialTheme();
-    systemPrefersDark.addEventListener('change', handleSystemChange);
+    systemPrefersDark.addEventListener(
+      'change',
+      handleSystemChange,
+    );
 
     return () => {
-      systemPrefersDark.removeEventListener('change', handleSystemChange);
+      systemPrefersDark.removeEventListener(
+        'change',
+        handleSystemChange,
+      );
     };
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.classList.toggle(
+      'dark',
+      theme === 'dark',
+    );
   }, [theme]);
 
   const setTheme = (newTheme: AppTheme) => {
@@ -47,7 +67,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, setTheme }}
+    >
       <Theme
         appearance={theme}
         accentColor="violet"

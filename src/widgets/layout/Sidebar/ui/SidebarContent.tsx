@@ -1,5 +1,10 @@
 import { GearIcon, PlusIcon } from '@radix-ui/react-icons';
-import { Badge, Button, Flex, Text } from '@radix-ui/themes';
+import {
+  Badge,
+  Button,
+  Flex,
+  Text,
+} from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 import { FILTERS, NAV_ITEMS, STATS } from '../lib';
 
@@ -54,7 +59,12 @@ const SidebarContent = ({
         </div>
         <Flex direction="column" gap="1" className="pb-2">
           {STATS.map((stat) => (
-            <Flex key={stat.label} justify="between" align="center" className="px-3 py-1">
+            <Flex
+              key={stat.label}
+              justify="between"
+              align="center"
+              className="px-3 py-1"
+            >
               <Text size="2">{stat.label}</Text>
               <Badge color={stat.color}>{stat.value}</Badge>
             </Flex>
@@ -88,7 +98,10 @@ const SidebarContent = ({
         gap="4"
         align="center"
       >
-        <Button className="flex-1 justify-start gap-2" style={{ width: '100%', cursor: 'pointer' }}>
+        <Button
+          className="flex-1 justify-start gap-2"
+          style={{ width: '100%', cursor: 'pointer' }}
+        >
           <GearIcon /> Настройки
         </Button>
       </Flex>

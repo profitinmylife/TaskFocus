@@ -1,5 +1,11 @@
-import { I18nProvider } from './I18nProvider.tsx';
-import { AuthProvider, RouterConfig } from './Router.tsx';
+import { AuthProvider } from './AuthProvider';
+import { I18nProvider } from './I18nProvider';
+import { Router } from './Router';
 import { ThemeProvider } from './ThemeProvider';
 
-export { AuthProvider, RouterConfig, ThemeProvider, I18nProvider };
+export {
+  AuthProvider,
+  Router,
+  ThemeProvider,
+  I18nProvider,
+};

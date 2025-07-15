@@ -1,14 +1,10 @@
 {
+  "printWidth": 60,
+  "tabWidth": 2,
   "singleQuote": true,
   "trailingComma": "all",
-  "printWidth": 100,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
+  "jsxSingleQuote": false,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^react$", "^@?\\w", "^[./]"],
-  "importOrderSeparation": false,
-  "importOrderSortSpecifiers": true
+  "semi": true
 }

@@ -1,12 +1,17 @@
 import { RouterProvider } from 'react-router-dom';
-import { AuthProvider, I18nProvider, RouterConfig, ThemeProvider } from './providers';
+import {
+  AuthProvider,
+  I18nProvider,
+  Router,
+  ThemeProvider,
+} from './providers';
 
 function App() {
   return (
     <I18nProvider>
       <ThemeProvider>
         <AuthProvider>
-          <RouterProvider router={RouterConfig} />
+          <RouterProvider router={Router} />
         </AuthProvider>
       </ThemeProvider>
     </I18nProvider>

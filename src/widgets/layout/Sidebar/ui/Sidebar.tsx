@@ -2,14 +2,29 @@ import { Button, Flex, Heading } from '@radix-ui/themes';
 import { useSidebarStore } from '../lib';
 import SidebarContent from './SidebarContent.tsx';
 
-const SidebarHeader = ({ onClose, showClose }: { onClose?: () => void; showClose?: boolean }) => {
+const SidebarHeader = ({
+  onClose,
+  showClose,
+}: {
+  onClose?: () => void;
+  showClose?: boolean;
+}) => {
   return (
-    <Flex justify="between" align="center" className="pb-4 md:p-4 md:pb-0">
+    <Flex
+      justify="between"
+      align="center"
+      className="pb-4 md:p-4 md:pb-0"
+    >
       <Heading size="4" weight="bold">
         Task Manager
       </Heading>
       {showClose && (
-        <Button variant="soft" size="1" onClick={onClose} aria-label="Закрыть сайдбар">
+        <Button
+          variant="soft"
+          size="1"
+          onClick={onClose}
+          aria-label="Закрыть сайдбар"
+        >
           ✕
         </Button>
       )}
@@ -17,21 +32,36 @@ const SidebarHeader = ({ onClose, showClose }: { onClose?: () => void; showClose
   );
 };
 
-const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
+const Sidebar = ({
+  onLinkClick,
+}: {
+  onLinkClick?: () => void;
+}) => {
   const mobileOpen = useSidebarStore((s) => s.mobileOpen);
-  const toggleSideBar = useSidebarStore((s) => s.toggleSideBar);
+  const toggleSideBar = useSidebarStore(
+    (s) => s.toggleSideBar,
+  );
 
   return (
     <>
       {mobileOpen && (
         <div className="fixed inset-0 z-50 flex md:hidden">
-          <div className="absolute inset-0 bg-black/40" onClick={() => toggleSideBar(false)} />
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => toggleSideBar(false)}
+          />
           <Flex
             direction="column"
             className="relative bg-white text-black dark:bg-gray-900 dark:text-white w-72 max-w-full h-full p-4 animate-slide-in transition-transform duration-300 z-10 overflow-y-auto max-h-screen"
           >
-            <SidebarHeader onClose={() => toggleSideBar(false)} showClose />
-            {SidebarContent({ onLinkClick, close: () => toggleSideBar(false) })}
+            <SidebarHeader
+              onClose={() => toggleSideBar(false)}
+              showClose
+            />
+            {SidebarContent({
+              onLinkClick,
+              close: () => toggleSideBar(false),
+            })}
           </Flex>
         </div>
       )}
