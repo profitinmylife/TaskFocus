@@ -1,7 +1,7 @@
 import { HamburgerMenuIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { Button, Flex, Text } from '@radix-ui/themes';
 import { useTheme } from '@shared/hooks/useTheme';
-import { useSidebarStore } from '@shared/lib/useSidebarStore';
+import { useSidebarStore } from '../Sidebar';
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();

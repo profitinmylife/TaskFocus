@@ -1,5 +1,6 @@
 import { GearIcon, PlusIcon } from '@radix-ui/react-icons';
 import { Badge, Button, Flex, Text } from '@radix-ui/themes';
+import { Link } from 'react-router-dom';
 import { FILTERS, NAV_ITEMS, STATS } from '../lib';
 
 const SidebarContent = ({
@@ -12,8 +13,13 @@ const SidebarContent = ({
   return (
     <div className="md:p-4">
       <div className="mb-6">
-        <Button variant="solid" size="2" style={{ width: '100%', cursor: 'pointer' }}>
-          <PlusIcon className="mr-2" /> Новая задача
+        <Button
+          className="flex gap-2"
+          variant="solid"
+          size="2"
+          style={{ width: '100%', cursor: 'pointer' }}
+        >
+          <PlusIcon /> Новая задача
         </Button>
       </div>
       <nav className="mb-4 border-b border-gray-200 dark:border-gray-800">
@@ -25,8 +31,8 @@ const SidebarContent = ({
         <Flex direction="column" gap="1" className="pb-2">
           {NAV_ITEMS.map((item) => (
             <Flex key={item.label} className="flex-1">
-              <a
-                href={item.to}
+              <Link
+                to={item.to}
                 className="flex flex-1 items-center gap-2 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium text-gray-900 dark:text-white"
                 onClick={() => {
                   onLinkClick?.();
@@ -35,7 +41,7 @@ const SidebarContent = ({
               >
                 {item.icon}
                 <Text>{item.label}</Text>
-              </a>
+              </Link>
             </Flex>
           ))}
         </Flex>

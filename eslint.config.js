@@ -29,15 +29,8 @@ export default tseslint.config([
     },
     settings: {
       'import/resolver': {
-        alias: {
-          map: [
-            ['@', './src'],
-            ['@app', './src/app'],
-            ['@shared', './src/shared'],
-            ['@features', './src/features'],
-            ['@widgets', './src/widgets'],
-          ],
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        typescript: {
+          project: './tsconfig.app.json',
         },
       },
     },

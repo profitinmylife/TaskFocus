@@ -1,6 +1,6 @@
 import { Button, Flex, Heading } from '@radix-ui/themes';
-import { useSidebarStore } from '@shared/lib/useSidebarStore.ts';
-import SidebarContent from '@widgets/layout/Sidebar/ui/SidebarContent.tsx';
+import { useSidebarStore } from '../lib';
+import SidebarContent from './SidebarContent.tsx';
 
 const SidebarHeader = ({ onClose, showClose }: { onClose?: () => void; showClose?: boolean }) => {
   return (
@@ -17,7 +17,7 @@ const SidebarHeader = ({ onClose, showClose }: { onClose?: () => void; showClose
   );
 };
 
-export const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
+const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   const mobileOpen = useSidebarStore((s) => s.mobileOpen);
   const toggleSideBar = useSidebarStore((s) => s.toggleSideBar);
 
@@ -47,3 +47,5 @@ export const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
     </>
   );
 };
+
+export default Sidebar;

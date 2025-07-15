@@ -1,25 +1,15 @@
-import { I18nProvider } from '@app/providers/I18nProvider.tsx';
-import { ThemeProvider } from '@app/providers/ThemeProvider';
-import '@shared/config/i18n.ts';
-import { ResponsiveLayout } from '@widgets/layout/ResponsiveLayout/ResponsiveLayout.tsx';
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-
-const AppContent = () => {
-  return (
-    <I18nProvider>
-      <ResponsiveLayout />
-    </I18nProvider>
-  );
-};
+import { RouterProvider } from 'react-router-dom';
+import { AuthProvider, I18nProvider, RouterConfig, ThemeProvider } from './providers';
 
 function App() {
   return (
-    <BrowserRouter>
+    <I18nProvider>
       <ThemeProvider>
-        <AppContent />
+        <AuthProvider>
+          <RouterProvider router={RouterConfig} />
+        </AuthProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </I18nProvider>
   );
 }
 
