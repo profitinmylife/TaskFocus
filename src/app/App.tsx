@@ -1,33 +1,26 @@
-import { BrowserRouter } from "react-router-dom";
-
-import './App.css';
-import { I18nProvider } from "@app/providers/I18nProvider.tsx";
-import { ThemeProvider } from "@app/providers/ThemeProvider";
-import { useTheme } from "@shared/hooks/useTheme";
+import { I18nProvider } from '@app/providers/I18nProvider.tsx';
+import { ThemeProvider } from '@app/providers/ThemeProvider';
 import '@shared/config/i18n.ts';
-import { ResponsiveLayout } from "@widgets/layout/ResponsiveLayout/ResponsiveLayout.tsx";
+import { ResponsiveLayout } from '@widgets/layout/ResponsiveLayout/ResponsiveLayout.tsx';
+import { BrowserRouter } from 'react-router-dom';
+import './App.css';
 
 const AppContent = () => {
-    const { toggleTheme } = useTheme();
-
-    return (
-        <I18nProvider>
-            <button onClick={toggleTheme} className="bg-black text-white px-4 py-2 rounded">
-                Toggle Theme
-            </button>
-            <ResponsiveLayout />
-        </I18nProvider>
-    );
+  return (
+    <I18nProvider>
+      <ResponsiveLayout />
+    </I18nProvider>
+  );
 };
 
 function App() {
-    return (
-        <BrowserRouter>
-            <ThemeProvider>
-                <AppContent />
-            </ThemeProvider>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;

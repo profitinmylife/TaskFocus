@@ -1,16 +1,4 @@
-@import "tailwindcss";
-@import "@radix-ui/themes/styles.css";
+@import 'tailwindcss';
+@import '@radix-ui/themes/styles.css';
 
-:root {
-  --tw-color-white: #ffffff;
-  --tw-color-black: #222222;
-  --tw-color-gray-100: #f3f4f6;
-  --tw-color-gray-900: #111827;
-}
-
-.theme-dark {
-  --tw-color-white: #18181b;
-  --tw-color-black: #fafafa;
-  --tw-color-gray-100: #27272a;
-  --tw-color-gray-900: #23232b;
-}
+@custom-variant dark (&:where(.dark, .dark *));
