@@ -1,98 +1,130 @@
-import { createContext, useEffect } from 'react';
-import type { ReactNode } from 'react';
-import { useAuthStore } from '@entities/user/model/useAuthStore';
-import type { Auth } from '@shared/types/auth.ts';
-import { ResponsiveLayout } from '@widgets/layout/ResponsiveLayout';
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import { privateLoader } from '@features/auth';
+import { ResponsiveLayout } from '@widgets/layout';
+import { createBrowserRouter } from 'react-router-dom';
 
-const AuthContext = createContext<Auth | undefined>(undefined);
-
-const privateLoader = () => {
-  const { isAuth, isLoading } = useAuthStore.getState();
-
-  if (isLoading) {
-    throw new Response('Проверка сессии...', { status: 418 });
-  }
-
-  if (!isAuth) {
-    throw redirect('/auth');
-  }
-  return null;
-};
-
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const { isAuth, isLoading, login, logout, refresh } = useAuthStore();
-
-  useEffect(() => {
-    refresh();
-  }, [refresh]);
-
-  return (
-    <AuthContext.Provider value={{ isAuth, isLoading, login, logout, refresh }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
-
-export const RouterConfig = createBrowserRouter([
+export const Router = createBrowserRouter([
   {
     path: '/',
-    element: <ResponsiveLayout />, // layout
+    element: <ResponsiveLayout />,
     children: [
       {
         index: true,
         lazy: async () => ({
-          Component: (await import('@pages/BoardPage')).default,
+          Component: (await import('@pages/BoardPage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Доска',
+              description:
+                'Главная страница с задачами и досками для управления проектами.',
+            },
+          }),
       },
       {
         path: 'team',
         lazy: async () => ({
-          Component: (await import('@pages/TeamPage')).default,
+          Component: (await import('@pages/TeamPage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Команда',
+              description:
+                'Страница с информацией о вашей команде и участниках проекта.',
+            },
+          }),
       },
       {
         path: 'calendar',
         lazy: async () => ({
-          Component: (await import('@pages/CalendarPage')).default,
+          Component: (await import('@pages/CalendarPage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Календарь',
+              description:
+                'Календарь для отслеживания сроков и планирования задач.',
+            },
+          }),
       },
       {
         path: 'task/:id',
         lazy: async () => ({
-          Component: (await import('@pages/TaskPage')).default,
+          Component: (await import('@pages/TaskPage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Задача',
+              description:
+                'Детальная информация о выбранной задаче.',
+            },
+          }),
       },
       {
         path: 'profile',
         lazy: async () => ({
-          Component: (await import('@pages/ProfilePage')).default,
+          Component: (await import('@pages/ProfilePage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Профиль',
+              description:
+                'Персональная страница пользователя с настройками и информацией.',
+            },
+          }),
       },
       {
         path: 'settings',
         lazy: async () => ({
-          Component: (await import('@pages/SettingsPage')).default,
+          Component: (await import('@pages/SettingsPage'))
+            .default,
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Настройки',
+              description:
+                'Настройки приложения и персональные предпочтения пользователя.',
+            },
+          }),
       },
       {
         path: 'auth',
         lazy: async () => ({
-          Component: (await import('@pages/AuthPage')).default,
+          Component: (await import('@pages/AuthPage'))
+            .default,
         }),
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Авторизация',
+              description:
+                'Страница входа в систему для доступа к вашему аккаунту.',
+            },
+          }),
       },
       {
         path: '*',
         lazy: async () => ({
-          Component: (await import('@pages/BoardPage')).default,
+          Component: () => 'Страница не найдена',
         }),
-        loader: privateLoader,
+        loader: () =>
+          privateLoader({
+            meta: {
+              title: 'Страница не найдена',
+              description:
+                'Ошибка 404: страница не существует или была удалена.',
+            },
+          }),
       },
     ],
   },

@@ -1,24 +1,21 @@
 import { useEffect } from 'react';
 import { useAuthStore } from '@entities/user/model/useAuthStore';
-import { useLocation, useNavigate } from 'react-router-dom';
-
-interface LocationState {
-  from?: { pathname: string };
-}
+import { useNavigate } from 'react-router-dom';
 
 const AuthPage = () => {
   const login = useAuthStore((s) => s.login);
   const isAuth = useAuthStore((s) => s.isAuth);
   const isLoading = useAuthStore((s) => s.isLoading);
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = (location.state as LocationState)?.from?.pathname || '/';
 
   useEffect(() => {
     if (isAuth && !isLoading) {
-      navigate(from, { replace: true });
+      const redirectTo =
+        localStorage.getItem('auth_redirect') || '/';
+      localStorage.removeItem('auth_redirect');
+      navigate(redirectTo, { replace: true });
     }
-  }, [isAuth, isLoading, from, navigate]);
+  }, [isAuth, isLoading, navigate]);
 
   if (isLoading) {
     return <div>Проверка сессии...</div>;
