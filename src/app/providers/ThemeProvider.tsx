@@ -8,13 +8,13 @@ export const ThemeProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [theme, setThemeState] =
-    useState<AppTheme>('light');
+  const [theme, setThemeState] = useState<AppTheme>('light');
 
   useEffect(() => {
     const storedTheme = localStorage.getItem(
       'theme',
     ) as AppTheme | null;
+
     const systemPrefersDark = window.matchMedia(
       '(prefers-color-scheme: dark)',
     );
@@ -23,9 +23,7 @@ export const ThemeProvider = ({
       if (storedTheme) {
         setThemeState(storedTheme);
       } else {
-        setThemeState(
-          systemPrefersDark.matches ? 'dark' : 'light',
-        );
+        setThemeState(systemPrefersDark.matches ? 'dark' : 'light');
       }
     };
 
@@ -37,10 +35,7 @@ export const ThemeProvider = ({
     };
 
     setInitialTheme();
-    systemPrefersDark.addEventListener(
-      'change',
-      handleSystemChange,
-    );
+    systemPrefersDark.addEventListener('change', handleSystemChange);
 
     return () => {
       systemPrefersDark.removeEventListener(
@@ -51,10 +46,7 @@ export const ThemeProvider = ({
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle(
-      'dark',
-      theme === 'dark',
-    );
+    document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
   const setTheme = (newTheme: AppTheme) => {
@@ -67,9 +59,7 @@ export const ThemeProvider = ({
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme, toggleTheme, setTheme }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       <Theme
         appearance={theme}
         accentColor="violet"

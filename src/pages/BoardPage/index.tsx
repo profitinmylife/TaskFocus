@@ -1,3 +1,3 @@
-const BoardPage = () => <div>Доска (Главная)</div>;
+import BoardPage from './BoardPage.tsx';
 
 export default BoardPage;

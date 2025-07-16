@@ -17,8 +17,7 @@ export const useAuthStore = create<Auth>((set) => ({
   refresh: () => {
     set({ isLoading: true });
     setTimeout(() => {
-      const isAuth =
-        localStorage.getItem(AUTH_KEY) === 'true';
+      const isAuth = localStorage.getItem(AUTH_KEY) === 'true';
       set({ isAuth, isLoading: false });
     }, 2000);
   },

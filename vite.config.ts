@@ -10,15 +10,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@app': path.resolve(__dirname, './src/app'),
       '@shared': path.resolve(__dirname, './src/shared'),
-      '@features': path.resolve(
-        __dirname,
-        './src/features',
-      ),
+      '@features': path.resolve(__dirname, './src/features'),
       '@widgets': path.resolve(__dirname, './src/widgets'),
-      '@entities': path.resolve(
-        __dirname,
-        './src/entities',
-      ),
+      '@entities': path.resolve(__dirname, './src/entities'),
       '@pages': path.resolve(__dirname, './src/pages'),
     },
   },

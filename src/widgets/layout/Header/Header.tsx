@@ -11,9 +11,7 @@ import type { RouteMeta } from '@shared/types/router-meta';
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
-  const toggleSideBar = useSidebarStore(
-    (s) => s.toggleSideBar,
-  );
+  const toggleSideBar = useSidebarStore((s) => s.toggleSideBar);
   const matches = useMatches();
 
   const lastMatch = matches.at(-1) as

@@ -1,10 +1,5 @@
 import { GearIcon, PlusIcon } from '@radix-ui/react-icons';
-import {
-  Badge,
-  Button,
-  Flex,
-  Text,
-} from '@radix-ui/themes';
+import { Badge, Button, Flex, Text } from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 import { FILTERS, NAV_ITEMS, STATS } from '../lib';
 

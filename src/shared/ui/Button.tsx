@@ -3,19 +3,13 @@ import { Slot } from '@radix-ui/react-slot';
 import { Button as RadixButton } from '@radix-ui/themes';
 
 export interface ButtonProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'color'
-  > {
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
   asChild?: boolean;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md';
 }
 
-export const Button = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       asChild = false,
@@ -35,9 +29,7 @@ export const Button = React.forwardRef<
     const radixSize = size === 'sm' ? '1' : '2';
 
     if (asChild)
-      return (
-        <Slot ref={ref} className={className} {...props} />
-      );
+      return <Slot ref={ref} className={className} {...props} />;
 
     return (
       <RadixButton

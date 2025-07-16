@@ -10,8 +10,7 @@ export const Router = createBrowserRouter([
       {
         index: true,
         lazy: async () => ({
-          Component: (await import('@pages/BoardPage'))
-            .default,
+          Component: (await import('@pages/BoardPage')).default,
         }),
         loader: () =>
           privateLoader({
@@ -25,8 +24,7 @@ export const Router = createBrowserRouter([
       {
         path: 'team',
         lazy: async () => ({
-          Component: (await import('@pages/TeamPage'))
-            .default,
+          Component: (await import('@pages/TeamPage')).default,
         }),
         loader: () =>
           privateLoader({
@@ -40,8 +38,7 @@ export const Router = createBrowserRouter([
       {
         path: 'calendar',
         lazy: async () => ({
-          Component: (await import('@pages/CalendarPage'))
-            .default,
+          Component: (await import('@pages/CalendarPage')).default,
         }),
         loader: () =>
           privateLoader({
@@ -55,23 +52,20 @@ export const Router = createBrowserRouter([
       {
         path: 'task/:id',
         lazy: async () => ({
-          Component: (await import('@pages/TaskPage'))
-            .default,
+          Component: (await import('@pages/TaskPage')).default,
         }),
         loader: () =>
           privateLoader({
             meta: {
               title: 'Задача',
-              description:
-                'Детальная информация о выбранной задаче.',
+              description: 'Детальная информация о выбранной задаче.',
             },
           }),
       },
       {
         path: 'profile',
         lazy: async () => ({
-          Component: (await import('@pages/ProfilePage'))
-            .default,
+          Component: (await import('@pages/ProfilePage')).default,
         }),
         loader: () =>
           privateLoader({
@@ -85,8 +79,7 @@ export const Router = createBrowserRouter([
       {
         path: 'settings',
         lazy: async () => ({
-          Component: (await import('@pages/SettingsPage'))
-            .default,
+          Component: (await import('@pages/SettingsPage')).default,
         }),
         loader: () =>
           privateLoader({
@@ -100,8 +93,7 @@ export const Router = createBrowserRouter([
       {
         path: 'auth',
         lazy: async () => ({
-          Component: (await import('@pages/AuthPage'))
-            .default,
+          Component: (await import('@pages/AuthPage')).default,
         }),
         loader: () =>
           privateLoader({

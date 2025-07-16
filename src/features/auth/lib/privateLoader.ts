@@ -1,6 +1,6 @@
 import { useAuthStore } from '@entities/user/model/useAuthStore';
 import { redirect } from 'react-router-dom';
-import type { MatchWithMeta } from '@shared/types/router-meta';
+import type { MatchWithMeta } from '@shared/types';
 
 export const privateLoader = async ({
   meta,
@@ -13,10 +13,7 @@ export const privateLoader = async ({
 
   if (!isAuth) {
     if (typeof window !== 'undefined') {
-      localStorage.setItem(
-        'auth_redirect',
-        window.location.pathname,
-      );
+      localStorage.setItem('auth_redirect', window.location.pathname);
     }
     throw redirect('/auth');
   }

@@ -32,15 +32,9 @@ const SidebarHeader = ({
   );
 };
 
-const Sidebar = ({
-  onLinkClick,
-}: {
-  onLinkClick?: () => void;
-}) => {
+const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   const mobileOpen = useSidebarStore((s) => s.mobileOpen);
-  const toggleSideBar = useSidebarStore(
-    (s) => s.toggleSideBar,
-  );
+  const toggleSideBar = useSidebarStore((s) => s.toggleSideBar);
 
   return (
     <>

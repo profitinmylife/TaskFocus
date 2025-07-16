@@ -12,10 +12,7 @@ const ResponsiveLayout = () => {
   return (
     <Flex className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
       <Sidebar />
-      <Flex
-        direction="column"
-        className="flex-1 min-h-screen"
-      >
+      <Flex direction="column" className="flex-1 min-h-screen">
         <Header />
         <main className="flex-1 p-4">
           {isLoading ? (

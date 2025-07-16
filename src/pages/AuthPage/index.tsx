@@ -10,8 +10,7 @@ const AuthPage = () => {
 
   useEffect(() => {
     if (isAuth && !isLoading) {
-      const redirectTo =
-        localStorage.getItem('auth_redirect') || '/';
+      const redirectTo = localStorage.getItem('auth_redirect') || '/';
       localStorage.removeItem('auth_redirect');
       navigate(redirectTo, { replace: true });
     }
