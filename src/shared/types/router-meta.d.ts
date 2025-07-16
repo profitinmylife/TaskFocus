@@ -1,20 +1,5 @@
 import 'react-router-dom';
-
-export interface MatchWithMeta {
-  data?: {
-    meta?: {
-      title?: string;
-      description?: string;
-      [key: string]: unknown;
-    };
-  };
-}
-
-export type RouteMeta = {
-  title?: string;
-  description?: string;
-  [key: string]: string | number | boolean | undefined;
-};
+import type { RouteMeta } from '/router.ts';
 
 declare module 'react-router-dom' {
   interface RouteObject {

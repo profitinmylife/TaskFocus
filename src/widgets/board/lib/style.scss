@@ -1,0 +1,13 @@
+.tabs-trigger {
+  flex: 1;
+  background: transparent;
+  color: var(--gray-11);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tabs-trigger[data-state="active"] {
+  background: var(--accent-9);
+  color: white;
+}
