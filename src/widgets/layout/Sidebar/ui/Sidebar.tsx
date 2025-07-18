@@ -54,10 +54,10 @@ const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
               onClose={() => toggleSideBar(false)}
               showClose
             />
-            {SidebarContent({
-              onLinkClick,
-              close: () => toggleSideBar(false),
-            })}
+            <SidebarContent
+              onLinkClick={onLinkClick}
+              close={() => toggleSideBar(false)}
+            />
           </Flex>
         </div>
       )}
@@ -67,7 +67,7 @@ const Sidebar = ({ onLinkClick }: { onLinkClick?: () => void }) => {
           className="w-72 max-w-full h-screen bg-white text-black dark:bg-gray-900 dark:text-white border-r sticky top-0 transition-all duration-300 border-gray-200 dark:border-gray-800"
         >
           <SidebarHeader />
-          {SidebarContent({ onLinkClick })}
+          <SidebarContent onLinkClick={onLinkClick} />
         </Flex>
       </div>
     </>
