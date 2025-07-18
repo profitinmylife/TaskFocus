@@ -9,23 +9,20 @@ import {
 import type { BadgeProps } from '@radix-ui/themes';
 
 export const NAV_ITEMS = [
-  { label: 'Доска', icon: <DashboardIcon />, to: '/' },
+  { label: 'sidebar.nav.board', icon: <DashboardIcon />, to: '/' },
   {
-    label: 'Календарь',
+    label: 'sidebar.nav.calendar',
     icon: <CalendarIcon />,
     to: '/calendar',
   },
-  { label: 'Команда', icon: <PersonIcon />, to: '/team' },
+  { label: 'sidebar.nav.team', icon: <PersonIcon />, to: '/team' },
 ];
 
 export const FILTERS = [
-  { label: 'Все задачи', icon: <ListBulletIcon /> },
-  {
-    label: 'Высокий приоритет',
-    icon: <ExclamationTriangleIcon />,
-  },
-  { label: 'Просроченные', icon: <StopwatchIcon /> },
-  { label: 'Мои задачи', icon: <PersonIcon /> },
+  { label: 'sidebar.filters.all', icon: <ListBulletIcon /> },
+  { label: 'sidebar.filters.high', icon: <ExclamationTriangleIcon /> },
+  { label: 'sidebar.filters.overdue', icon: <StopwatchIcon /> },
+  { label: 'sidebar.filters.mine', icon: <PersonIcon /> },
 ];
 
 export const STATS: {
@@ -33,9 +30,9 @@ export const STATS: {
   value: number;
   color: BadgeProps['color'];
 }[] = [
-  { label: 'К выполнению', value: 1, color: 'gray' },
-  { label: 'В работе', value: 1, color: 'blue' },
-  { label: 'Выполнено', value: 1, color: 'gray' },
-  { label: 'Высокий приоритет', value: 1, color: 'red' },
-  { label: 'Просрочено', value: 1, color: 'red' },
+  { label: 'sidebar.stats.todo', value: 1, color: 'gray' },
+  { label: 'sidebar.stats.inProgress', value: 1, color: 'blue' },
+  { label: 'sidebar.stats.done', value: 1, color: 'gray' },
+  { label: 'sidebar.stats.high', value: 1, color: 'red' },
+  { label: 'sidebar.stats.overdue', value: 1, color: 'red' },
 ];

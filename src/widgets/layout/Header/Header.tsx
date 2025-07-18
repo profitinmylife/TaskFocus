@@ -7,20 +7,23 @@ import { Button, Flex, Text } from '@radix-ui/themes';
 import { useTheme } from '@shared/hooks/useTheme';
 import { useSidebarStore } from '@widgets/layout/Sidebar';
 import { useMatches } from 'react-router-dom';
-import type { RouteMeta } from '@shared/types/router-meta';
+import type { RouteMeta } from '@shared/types';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '@features/languageSwitcher';
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const toggleSideBar = useSidebarStore((s) => s.toggleSideBar);
   const matches = useMatches();
+  const { t } = useTranslation();
 
   const lastMatch = matches.at(-1) as
     | { data?: { meta?: RouteMeta } }
     | undefined;
 
   const meta = lastMatch?.data?.meta ?? {};
-  const title = meta.title || 'Task Manager';
-  const description = meta.description || '';
+  const title = meta.title ? t(meta.title) : t('tasks.title');
+  const description = meta.description ? t(meta.description) : '';
 
   return (
     <Flex
@@ -61,14 +64,19 @@ export const Header = () => {
             </div>
           )}
         </Flex>
-        <Button
-          size="2"
-          className="ml-2"
-          onClick={toggleTheme}
-          aria-label="Переключить тему"
-        >
-          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-        </Button>
+
+        <Flex gap="2">
+          <Button
+            size="2"
+            className="ml-2"
+            onClick={toggleTheme}
+            aria-label="Переключить тему"
+          >
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </Button>
+          <LanguageSwitcher />
+        </Flex>
+
         <div className="ml-4 hidden md:flex items-center gap-2">
           <Flex
             className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800"
@@ -76,10 +84,10 @@ export const Header = () => {
             justify="center"
           >
             <Text weight="bold" size="2">
-              И
+              {t('profile.name')[0]}
             </Text>
           </Flex>
-          <Text weight="medium">Иван Петров</Text>
+          <Text weight="medium">{t('profile.name')}</Text>
         </div>
       </header>
     </Flex>

@@ -1,13 +1,16 @@
 import { DndContext, closestCenter, DragOverlay } from '@dnd-kit/core';
 import { BoardTabs, BoardColumn } from '@widgets/board';
 import { TaskCard } from '@entities/task';
-import { TASK_STATUSES } from '@shared/constants';
+import { getTaskStatuses } from '@shared/constants/task';
+import { useTranslation } from 'react-i18next';
 import { useBoardPage } from './lib';
 import { breakpoint } from '@shared/utils';
 
 const BoardPage = () => {
   const { activeId, setActiveId, tasks, handleDragEnd } =
     useBoardPage();
+  const { t } = useTranslation();
+  const TASK_STATUSES = getTaskStatuses(t);
 
   return (
     <DndContext

@@ -1,43 +1,119 @@
 {
-  "common": {
-    "button": {
-      "save": "Save",
-      "cancel": "Cancel",
-      "submit": "Submit",
-      "delete": "Delete",
-      "edit": "Edit"
+  "translation": {
+    "common": {
+      "button": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "delete": "Delete",
+        "edit": "Edit"
+      },
+      "notification": {
+        "success": "Success!",
+        "error": "Error",
+        "warning": "Warning"
+      }
     },
-    "notification": {
-      "success": "Success!",
-      "error": "Error",
-      "warning": "Warning"
+    "auth": {
+      "login": "Log in",
+      "logout": "Log out",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot password?"
+    },
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "bio": "Bio",
+      "settings": "Settings",
+      "ivan": "Ivan",
+      "maria": "Maria",
+      "peter": "Peter",
+      "olga": "Olga"
+    },
+    "tasks": {
+      "title": "Tasks",
+      "create": "Create task",
+      "edit": "Edit task",
+      "delete": "Delete task",
+      "status": {
+        "todo": "To do",
+        "inProgress": "In progress",
+        "done": "Done"
+      },
+      "initProject": "Initialize project",
+      "initProjectDesc": "Initialize a new project and set up the environment",
+      "createDesign": "Create design mockups",
+      "createDesignDesc": "Develop UI/UX design for main pages",
+      "writeDocs": "Write documentation",
+      "makeResponsive": "Make responsive",
+      "makeResponsiveDesc": "Ensure correct display on mobile devices"
+    },
+    "sidebar": {
+      "nav": {
+        "board": "Board",
+        "calendar": "Calendar",
+        "team": "Team"
+      },
+      "filters": {
+        "all": "All tasks",
+        "high": "High priority",
+        "overdue": "Overdue",
+        "mine": "My tasks"
+      },
+      "stats": {
+        "todo": "To do",
+        "inProgress": "In progress",
+        "done": "Done",
+        "high": "High priority",
+        "overdue": "Overdue"
+      },
+      "newTask": "New task",
+      "navigation": "Navigation",
+      "statistics": "Statistics",
+      "filtersTitle": "Filters",
+      "settings": "Settings"
+    },
+    "errors": {
+      "required": "Required field",
+      "invalidEmail": "Invalid email",
+      "minLength": "Minimum length — {{count}} characters",
+      "notFound": "Not found",
+      "server": "Server error"
+    },
+    "pages": {
+      "board": {
+        "title": "Board",
+        "description": "Main page with tasks and project boards."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Page with information about your team and project members."
+      },
+      "calendar": {
+        "title": "Calendar",
+        "description": "Calendar for tracking deadlines and planning tasks."
+      },
+      "task": {
+        "title": "Task",
+        "description": "Detailed information about the selected task."
+      },
+      "profile": {
+        "title": "Profile",
+        "description": "User's personal page with settings and information."
+      },
+      "settings": {
+        "title": "Settings",
+        "description": "Application settings and user preferences."
+      },
+      "auth": {
+        "title": "Authorization",
+        "description": "Login page for accessing your account."
+      },
+      "notFound": {
+        "title": "Page not found",
+        "description": "Error 404: the page does not exist or has been deleted."
+      }
     }
-  },
-  "auth": {
-    "login": "Log in",
-    "logout": "Log out",
-    "email": "Email",
-    "password": "Password",
-    "forgotPassword": "Forgot password?"
-  },
-  "profile": {
-    "title": "Profile",
-    "name": "Name",
-    "bio": "Bio",
-    "settings": "Settings"
-  },
-  "tasks": {
-    "title": "Tasks",
-    "create": "Create task",
-    "status": {
-      "todo": "To do",
-      "inProgress": "In progress",
-      "done": "Done"
-    }
-  },
-  "errors": {
-    "required": "Required field",
-    "invalidEmail": "Invalid email",
-    "minLength": "Minimum length — {{count}} characters"
   }
 }

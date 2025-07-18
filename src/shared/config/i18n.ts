@@ -6,11 +6,14 @@ import ruTranslations from '../translation/ru.json';
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
+  supportedLngs: ['en', 'ru'],
+  load: 'languageOnly',
   resources: {
     en: enTranslations,
     ru: ruTranslations,
   },
-  defaultNS: 'common',
+  ns: ['translation'],
+  defaultNS: 'translation',
   interpolation: {
     escapeValue: false,
   },

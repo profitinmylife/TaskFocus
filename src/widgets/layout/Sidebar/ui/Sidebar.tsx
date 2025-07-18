@@ -1,6 +1,7 @@
 import { Button, Flex, Heading } from '@radix-ui/themes';
 import { useSidebarStore } from '../lib';
 import SidebarContent from './SidebarContent.tsx';
+import { useTranslation } from 'react-i18next';
 
 const SidebarHeader = ({
   onClose,
@@ -9,6 +10,7 @@ const SidebarHeader = ({
   onClose?: () => void;
   showClose?: boolean;
 }) => {
+  const { t } = useTranslation();
   return (
     <Flex
       justify="between"
@@ -16,14 +18,14 @@ const SidebarHeader = ({
       className="pb-4 md:p-4 md:pb-0"
     >
       <Heading size="4" weight="bold">
-        Task Manager
+        {t('tasks.title')}
       </Heading>
       {showClose && (
         <Button
           variant="soft"
           size="1"
           onClick={onClose}
-          aria-label="Закрыть сайдбар"
+          aria-label={t('common.button.close')}
         >
           ✕
         </Button>

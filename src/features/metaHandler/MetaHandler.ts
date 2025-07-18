@@ -1,9 +1,11 @@
 import { useMatches } from 'react-router-dom';
 import { useEffect } from 'react';
 import type { RouteMeta } from '@shared/types';
+import { useTranslation } from 'react-i18next';
 
 export const MetaHandler = () => {
   const matches = useMatches();
+  const { t } = useTranslation();
 
   const matchWithMeta = matches
     .slice()
@@ -14,7 +16,7 @@ export const MetaHandler = () => {
   const meta: RouteMeta = matchWithMeta?.data?.meta || {};
 
   useEffect(() => {
-    document.title = meta.title || 'Task Manager';
+    document.title = meta.title ? t(meta.title) : t('tasks.title');
 
     if (meta.description) {
       let tag = document.querySelector('meta[name="description"]');
@@ -23,9 +25,9 @@ export const MetaHandler = () => {
         tag.setAttribute('name', 'description');
         document.head.appendChild(tag);
       }
-      tag.setAttribute('content', meta.description);
+      tag.setAttribute('content', t(meta.description));
     }
-  }, [meta.title, meta.description]);
+  }, [meta.title, meta.description, t]);
 
   return null;
 };

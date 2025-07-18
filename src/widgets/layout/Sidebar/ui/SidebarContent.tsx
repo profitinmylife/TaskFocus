@@ -2,6 +2,7 @@ import { GearIcon, PlusIcon } from '@radix-ui/react-icons';
 import { Badge, Button, Flex, Text } from '@radix-ui/themes';
 import { Link } from 'react-router-dom';
 import { FILTERS, NAV_ITEMS, STATS } from '../lib';
+import { useTranslation } from 'react-i18next';
 
 const SidebarContent = ({
   onLinkClick,
@@ -10,6 +11,8 @@ const SidebarContent = ({
   onLinkClick?: () => void;
   close?: () => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="md:p-4">
       <div className="mb-6">
@@ -19,13 +22,13 @@ const SidebarContent = ({
           size="2"
           style={{ width: '100%', cursor: 'pointer' }}
         >
-          <PlusIcon /> Новая задача
+          <PlusIcon /> {t('sidebar.newTask')}
         </Button>
       </div>
       <nav className="mb-4 border-b border-gray-200 dark:border-gray-800">
         <div className="mb-2">
           <Text as="p" color="gray">
-            Навигация
+            {t('sidebar.navigation')}
           </Text>
         </div>
         <Flex direction="column" gap="1" className="pb-2">
@@ -40,7 +43,7 @@ const SidebarContent = ({
                 }}
               >
                 {item.icon}
-                <Text>{item.label}</Text>
+                <Text>{t(item.label)}</Text>
               </Link>
             </Flex>
           ))}
@@ -49,7 +52,7 @@ const SidebarContent = ({
       <div className="mb-4 border-b border-gray-200 dark:border-gray-800">
         <div className="mb-2">
           <Text as="p" color="gray">
-            Статистика
+            {t('sidebar.statistics')}
           </Text>
         </div>
         <Flex direction="column" gap="1" className="pb-2">
@@ -60,7 +63,7 @@ const SidebarContent = ({
               align="center"
               className="px-3 py-1"
             >
-              <Text size="2">{stat.label}</Text>
+              <Text size="2">{t(stat.label)}</Text>
               <Badge color={stat.color}>{stat.value}</Badge>
             </Flex>
           ))}
@@ -69,7 +72,7 @@ const SidebarContent = ({
       <div className="mb-4">
         <div className="mb-2">
           <Text as="p" color="gray">
-            Фильтры
+            {t('sidebar.filtersTitle')}
           </Text>
         </div>
         <Flex direction="column" gap="1" className="pb-2">
@@ -82,7 +85,7 @@ const SidebarContent = ({
                 style={{ width: '100%', cursor: 'pointer' }}
               >
                 {filter.icon}
-                <Text>{filter.label}</Text>
+                <Text>{t(filter.label)}</Text>
               </Button>
             </div>
           ))}
@@ -97,7 +100,7 @@ const SidebarContent = ({
           className="flex-1 justify-start gap-2"
           style={{ width: '100%', cursor: 'pointer' }}
         >
-          <GearIcon /> Настройки
+          <GearIcon /> {t('sidebar.settings')}
         </Button>
       </Flex>
     </div>

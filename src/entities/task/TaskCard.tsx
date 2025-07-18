@@ -2,10 +2,12 @@ import type { TaskCardProps } from './lib';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Text, Box } from '@radix-ui/themes';
+import { useTranslation } from 'react-i18next';
 
 const TaskCard = ({ task }: TaskCardProps) => {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useSortable({ id: task.id });
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -20,7 +22,8 @@ const TaskCard = ({ task }: TaskCardProps) => {
         justifyContent: 'space-between',
         position: 'relative',
         padding: 14,
-        color: '#fff',
+        color: '#18181b',
+        backgroundColor: 'var(--accent-1, #f3f4f6)',
         transform: CSS.Transform.toString(transform),
         transition: 'transform 0.18s cubic-bezier(0.22,1,0.36,1)',
         cursor: 'grab',
@@ -31,7 +34,6 @@ const TaskCard = ({ task }: TaskCardProps) => {
         border: '1px solid',
         borderColor: 'var(--accent-9)',
         borderRadius: '8px',
-        backgroundColor: 'bg-white',
         gap: '8px',
       }}
       {...attributes}
@@ -50,7 +52,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
             color: 'var(--gray-12, #18181b)',
           }}
         >
-          {task.title}
+          {t(task.title)}
         </Text>
         {task.description && (
           <Text
@@ -70,7 +72,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
               color: 'var(--gray-12, #18181b)',
             }}
           >
-            {task.description}
+            {t(task.description)}
           </Text>
         )}
       </Box>
@@ -95,7 +97,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
               whiteSpace: 'nowrap',
             }}
           >
-            @{task.assignee}
+            @{t(task.assignee)}
           </Text>
         )}
       </Box>

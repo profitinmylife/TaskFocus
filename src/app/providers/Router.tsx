@@ -15,9 +15,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Доска',
-              description:
-                'Главная страница с задачами и досками для управления проектами.',
+              title: 'pages.board.title',
+              description: 'pages.board.description',
             },
           }),
       },
@@ -29,9 +28,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Команда',
-              description:
-                'Страница с информацией о вашей команде и участниках проекта.',
+              title: 'pages.team.title',
+              description: 'pages.team.description',
             },
           }),
       },
@@ -43,9 +41,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Календарь',
-              description:
-                'Календарь для отслеживания сроков и планирования задач.',
+              title: 'pages.calendar.title',
+              description: 'pages.calendar.description',
             },
           }),
       },
@@ -57,8 +54,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Задача',
-              description: 'Детальная информация о выбранной задаче.',
+              title: 'pages.task.title',
+              description: 'pages.task.description',
             },
           }),
       },
@@ -70,9 +67,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Профиль',
-              description:
-                'Персональная страница пользователя с настройками и информацией.',
+              title: 'pages.profile.title',
+              description: 'pages.profile.description',
             },
           }),
       },
@@ -84,9 +80,8 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Настройки',
-              description:
-                'Настройки приложения и персональные предпочтения пользователя.',
+              title: 'pages.settings.title',
+              description: 'pages.settings.description',
             },
           }),
       },
@@ -98,23 +93,21 @@ export const Router = createBrowserRouter([
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Авторизация',
-              description:
-                'Страница входа в систему для доступа к вашему аккаунту.',
+              title: 'pages.auth.title',
+              description: 'pages.auth.description',
             },
           }),
       },
       {
         path: '*',
         lazy: async () => ({
-          Component: () => 'Страница не найдена',
+          Component: () => 'pages.notFound.title',
         }),
         loader: () =>
           privateLoader({
             meta: {
-              title: 'Страница не найдена',
-              description:
-                'Ошибка 404: страница не существует или была удалена.',
+              title: 'pages.notFound.title',
+              description: 'pages.notFound.description',
             },
           }),
       },
